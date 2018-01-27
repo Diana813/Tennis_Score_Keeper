@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Tennis Score Keeper</string>
+    <string name="name1">Player 1</string>
+    <string name="name2">Player 2</string>
+    <string name="set">Set</string>
+    <string name="gem">Gem</string>
+    <string name="points">Points</string>
+    <string name="zero">0</string>
+    <string name="add"> add points</string>
+    <string name="reset">Reset</string>
+</resources>

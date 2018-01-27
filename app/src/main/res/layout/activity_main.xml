@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFDE7"
+    tools:context="com.example.android.tenniscounterapp.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:padding="16dp"
+                android:text="@string/name1"
+                android:textAppearance="@style/CodeFont"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#E8F5E9"
+                android:gravity="center_horizontal"
+                android:padding="16dp"
+                android:text="@string/set"
+                android:textAppearance="@style/CodeFont"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/player_1_set_score"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingTop="0dp"
+                android:text="@string/zero"
+                android:textAppearance="@style/CodeFont1"
+                android:textSize="45sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#E8F5E9"
+                android:gravity="center_horizontal"
+                android:padding="16dp"
+                android:text="@string/gem"
+                android:textAppearance="@style/CodeFont"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/player_1_gem_score"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingBottom="5dp"
+                android:paddingTop="0dp"
+                android:text="@string/zero"
+                android:textAppearance="@style/CodeFont1"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/Points1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#E8F5E9"
+                android:gravity="center_horizontal"
+                android:padding="16dp"
+                android:text="@string/points"
+                android:textAppearance="@style/CodeFont"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/player_1_score"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingBottom="5dp"
+                android:paddingTop="0dp"
+                android:text="@string/zero"
+                android:textAppearance="@style/CodeFont1"
+                android:textSize="30sp" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:onClick="Player1"
+                android:text="@string/add" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/darker_gray" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:padding="16dp"
+                android:text="@string/name2"
+                android:textAppearance="@style/CodeFont"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#E8F5E9"
+                android:gravity="center_horizontal"
+                android:padding="16dp"
+                android:text="@string/set"
+                android:textAppearance="@style/CodeFont"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/player_2_set_score"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingTop="0dp"
+                android:text="@string/zero"
+                android:textAppearance="@style/CodeFont1"
+                android:textSize="45sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#E8F5E9"
+                android:gravity="center_horizontal"
+                android:padding="16dp"
+                android:text="@string/gem"
+                android:textAppearance="@style/CodeFont"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/player_2_gem_score"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingBottom="5dp"
+                android:paddingTop="0dp"
+                android:text="@string/zero"
+                android:textAppearance="@style/CodeFont1"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/Points2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#E8F5E9"
+                android:gravity="center_horizontal"
+                android:padding="16dp"
+                android:text="@string/points"
+                android:textAppearance="@style/CodeFont"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/player_2_score"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingBottom="5dp"
+                android:paddingTop="0dp"
+                android:text="@string/zero"
+                android:textAppearance="@style/CodeFont1"
+                android:textSize="30sp" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:onClick="Player2"
+                android:text="@string/add" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:onClick="resetBtn"
+        android:text="@string/reset" />
+
+</RelativeLayout>
