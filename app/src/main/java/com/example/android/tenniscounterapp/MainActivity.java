@@ -3,6 +3,8 @@ package com.example.android.tenniscounterapp;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,25 +18,25 @@ public class MainActivity extends AppCompatActivity {
     int scorePlayer1 = 0;
     int scorePlayer2 = 0;
 
-    String Points = "Points";
-
-
+    String points = "Points";
+    String win = "Winner";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-
     /**
      * Displays the given score for Player1 set.
      */
     public void displayForPlayer1set(int score) {
         TextView scoreView = (TextView) findViewById(R.id.player_1_set_score);
         scoreView.setText(String.valueOf(score));
-
     }
-
+    public void displayForPlayer1set1 (String win){
+        TextView scoreView = (TextView) findViewById(R.id.player_1_set_score);
+        scoreView.setText(String.valueOf(win));
+    }
     /**
      * Displays the given score for Player2 set.
      */
@@ -42,17 +44,17 @@ public class MainActivity extends AppCompatActivity {
         TextView scoreView = (TextView) findViewById(R.id.player_2_set_score);
         scoreView.setText(String.valueOf(score));
     }
-
-
+    public void displayForPlayer2set2 (String win){
+        TextView scoreView = (TextView) findViewById(R.id.player_2_set_score);
+        scoreView.setText(String.valueOf(win));
+    }
     /**
      * Displays the given score for Player1 gem.
      */
     public void displayForPlayer1gem(int score) {
         TextView scoreView = (TextView) findViewById(R.id.player_1_gem_score);
         scoreView.setText(String.valueOf(score));
-
     }
-
     /**
      * Displays the given score for Player2 gem.
      */
@@ -60,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
         TextView scoreView = (TextView) findViewById(R.id.player_2_gem_score);
         scoreView.setText(String.valueOf(score));
     }
-
     /**
      * Displays the given score for Player1.
      */
@@ -69,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
         scoreView.setText(String.valueOf(score));
 
     }
-
     /**
      * Displays the given score for Player2.
      */
@@ -77,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
         TextView scoreView = (TextView) findViewById(R.id.player_2_score);
         scoreView.setText(String.valueOf(score));
     }
-
     /**
      * Displays the title Points for Player1.
      */
@@ -85,7 +84,6 @@ public class MainActivity extends AppCompatActivity {
         TextView textView = (TextView) findViewById(R.id.Points1);
         textView.setText(String.valueOf(text));
     }
-
     /**
      * Displays the title Points for Player2.
      */
@@ -93,11 +91,9 @@ public class MainActivity extends AppCompatActivity {
         TextView textView = (TextView) findViewById(R.id.Points2);
         textView.setText(String.valueOf(text));
     }
-
     /**
      * Reset button.
      */
-
     public void resetBtn(View view) {
         scorePlayer1set = 0;
         scorePlayer2set = 0;
@@ -111,59 +107,49 @@ public class MainActivity extends AppCompatActivity {
         displayForPlayer2gem(scorePlayer2gem);
         displayForPlayer1(scorePlayer1);
         displayForPlayer2(scorePlayer2);
+        Button player2 = (Button) findViewById(R.id.addPoints2);
+        player2.setEnabled(true);
+        Button player1 = (Button) findViewById(R.id.addPoints1);
+        player1.setEnabled(true);
     }
-
     public void setPlayer1(View view) {
         scorePlayer1set = scorePlayer1set + 1;
         displayForPlayer1set(scorePlayer1set);
-
     }
-
     public void setPlayer2(View view) {
         scorePlayer2set = scorePlayer2set + 1;
         displayForPlayer2set(scorePlayer2set);
-
     }
-
-
     public void gemPlayer1(View view) {
         scorePlayer1gem = scorePlayer1gem + 1;
         displayForPlayer1gem(scorePlayer1gem);
-
     }
-
     public void gemPlayer2(View view) {
         scorePlayer2gem = scorePlayer2gem + 1;
         displayForPlayer2gem(scorePlayer2gem);
-
     }
-
     /**
      * Add scores Player 1 button.
      */
-
-    public void Player1(View view) {
+    public void player1(View view) {
 
         scorePlayer1 = scorePlayer1 + 1;
         displayForPlayer1(scorePlayer1);
 
         if (scorePlayer1gem != 6 || scorePlayer2gem != 6) {
 
-            Points = "Points";
-            displayForPoints1(Points);
+            points = "Points";
+            displayForPoints1(points);
 
             if (scorePlayer1 == 1) {
                 displayForPlayer1(15);
             }
-
             if (scorePlayer1 == 2) {
                 displayForPlayer1(30);
             }
-
             if (scorePlayer1 == 3) {
                 displayForPlayer1(40);
             }
-
             if (scorePlayer1 >= 4 && scorePlayer1 >= scorePlayer2 + 2) {
 
                 scorePlayer1gem = scorePlayer1gem + 1;
@@ -177,7 +163,6 @@ public class MainActivity extends AppCompatActivity {
                     scorePlayer1set = scorePlayer1set + 1;
                     displayForPlayer1set(scorePlayer1set);
                 }
-
                 if (scorePlayer2gem > 5 && scorePlayer2gem >= scorePlayer1gem + 2) {
                     scorePlayer2set = scorePlayer2set + 1;
                     displayForPlayer2set(scorePlayer2set);
@@ -192,13 +177,19 @@ public class MainActivity extends AppCompatActivity {
                     displayForPlayer1(scorePlayer1);
                     displayForPlayer2(scorePlayer2);
                 }
+                if (scorePlayer1set == 3){
+                    displayForPlayer1set1(win);
+                    Button player2 = (Button) findViewById(R.id.addPoints2);
+                    player2.setEnabled(false);
+                    Button player1 = (Button) findViewById(R.id.addPoints1);
+                    player1.setEnabled(false);
+                }
             }
             if (scorePlayer1 >= 4 && scorePlayer1 == scorePlayer2 + 1){
                 if (scorePlayer1 == scorePlayer2 + 1){
                     String Ad = "Ad";
                     displayForPlayer1(Ad);
                 }
-
             }
             if (scorePlayer1 >= 4 && scorePlayer1 == scorePlayer2){
                 displayForPlayer1(40);
@@ -212,15 +203,12 @@ public class MainActivity extends AppCompatActivity {
                 displayForPlayer2(scorePlayer2);
                 displayForPlayer1(scorePlayer1);
             }
-
-
         }
         if (scorePlayer1gem == 6 && scorePlayer2gem == 6) {
 
-            Points = "Tie - break";
-            displayForPoints1(Points);
-            displayForPoints2(Points);
-
+            points = "Tie - break";
+            displayForPoints1(points);
+            displayForPoints2(points);
 
             if (scorePlayer1 > 6 && scorePlayer1 >= scorePlayer2 + 2) {
                 scorePlayer1set = scorePlayer1set + 1;
@@ -235,48 +223,42 @@ public class MainActivity extends AppCompatActivity {
                 scorePlayer2gem = 0;
                 scorePlayer2 = 0;
                 scorePlayer1 = 0;
-                Points = "Points";
-                displayForPoints1(Points);
-                displayForPoints2(Points);
+                points = "Points";
+                displayForPoints1(points);
+                displayForPoints2(points);
                 displayForPlayer1gem(scorePlayer1gem);
                 displayForPlayer2gem(scorePlayer2gem);
                 displayForPlayer1(scorePlayer1);
                 displayForPlayer2(scorePlayer2);
             }
-
         }
     }
-
     private void displayForPlayer1(String Ad) {
         TextView textView = (TextView) findViewById(R.id.player_1_score);
         textView.setText(String.valueOf(Ad));
     }
-
     /**
      * Add scores Player 2 button.
      */
-    public void Player2(View view) {
+    public void player2(View view) {
 
         scorePlayer2 = scorePlayer2 + 1;
         displayForPlayer2(scorePlayer2);
 
         if (scorePlayer1gem != 6 || scorePlayer2gem != 6) {
 
-            Points = "Points";
-            displayForPoints2(Points);
+            points = "Points";
+            displayForPoints2(points);
 
             if (scorePlayer2 == 1) {
                 displayForPlayer2(15);
             }
-
             if (scorePlayer2 == 2) {
                 displayForPlayer2(30);
             }
-
             if (scorePlayer2 == 3) {
                 displayForPlayer2(40);
             }
-
             if (scorePlayer2 >= 4 && scorePlayer2 >= scorePlayer1 + 2) {
 
                 scorePlayer2gem = scorePlayer2gem + 1;
@@ -290,7 +272,6 @@ public class MainActivity extends AppCompatActivity {
                     scorePlayer2set = scorePlayer2set + 1;
                     displayForPlayer2set(scorePlayer2set);
                 }
-
                 if (scorePlayer1gem > 5 && scorePlayer1gem >= scorePlayer2gem + 2) {
                     scorePlayer1set = scorePlayer1set + 1;
                     displayForPlayer1set(scorePlayer1set);
@@ -305,13 +286,19 @@ public class MainActivity extends AppCompatActivity {
                     displayForPlayer1(scorePlayer1);
                     displayForPlayer2(scorePlayer2);
                 }
+                if (scorePlayer2set == 3){
+                    displayForPlayer2set2(win);
+                    Button player2 = (Button) findViewById(R.id.addPoints2);
+                    player2.setEnabled(false);
+                    Button player1 = (Button) findViewById(R.id.addPoints1);
+                    player1.setEnabled(false);
+                }
             }
             if (scorePlayer2 >= 4 && scorePlayer2 == scorePlayer1 + 1){
                 if (scorePlayer2 == scorePlayer1 + 1){
                     String Ad = "Ad";
                     displayForPlayer2(Ad);
                 }
-
             }
             if (scorePlayer2 >= 4 && scorePlayer1 == scorePlayer2){
                 displayForPlayer1(40);
@@ -329,10 +316,9 @@ public class MainActivity extends AppCompatActivity {
 
         if (scorePlayer1gem == 6 && scorePlayer2gem == 6) {
 
-            Points = "Tie - break";
-            displayForPoints2(Points);
-            displayForPoints1(Points);
-
+            points = "Tie - break";
+            displayForPoints2(points);
+            displayForPoints1(points);
 
             if (scorePlayer2 > 6 && scorePlayer2 >= scorePlayer1 + 2) {
                 scorePlayer2set = scorePlayer2set + 1;
@@ -347,9 +333,9 @@ public class MainActivity extends AppCompatActivity {
                 scorePlayer2gem = 0;
                 scorePlayer2 = 0;
                 scorePlayer1 = 0;
-                Points = "Points";
-                displayForPoints1(Points);
-                displayForPoints2(Points);
+                points = "Points";
+                displayForPoints1(points);
+                displayForPoints2(points);
                 displayForPlayer1gem(scorePlayer1gem);
                 displayForPlayer2gem(scorePlayer2gem);
                 displayForPlayer1(scorePlayer1);
@@ -357,7 +343,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
     private void displayForPlayer2(String Ad) {
         TextView textView = (TextView) findViewById(R.id.player_2_score);
         textView.setText(String.valueOf(Ad));

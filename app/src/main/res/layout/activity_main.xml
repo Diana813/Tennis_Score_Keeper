@@ -97,8 +97,9 @@
                 android:layout_marginBottom="8dp"
                 android:layout_marginLeft="24dp"
                 android:layout_marginRight="24dp"
-                android:onClick="Player1"
-                android:text="@string/add" />
+                android:onClick="player1"
+                android:text="@string/add"
+                android:id="@+id/addPoints1"/>
 
         </LinearLayout>
 
@@ -194,8 +195,9 @@
                 android:layout_marginBottom="8dp"
                 android:layout_marginLeft="24dp"
                 android:layout_marginRight="24dp"
-                android:onClick="Player2"
-                android:text="@string/add" />
+                android:onClick="player2"
+                android:text="@string/add"
+                android:id="@+id/addPoints2"/>
 
         </LinearLayout>
     </LinearLayout>
